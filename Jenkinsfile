@@ -9,7 +9,7 @@ pipeline {
 
         stage('Test image') {
             steps {
-                sh 'echo "Tests passed"'
+                sh 'docker run buijt/hello-jenkins-singularity'
             }
         }
     }
