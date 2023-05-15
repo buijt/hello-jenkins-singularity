@@ -1,14 +1,11 @@
 Bootstrap: docker
-From: r-base:4.3.0
+From: bioconductor/r-ver:RELEASE_3_17
 
 %files
     hello.R
 
 %post
-    apt-get -y update && apt-get install -y \
-    cmake \
-    && rm -rf /var/lib/apt/lists/*
-    R -e 'install.packages("BiocManager");BiocManager::install("MSstats")'
+    R -e 'BiocManager::install("MSstats")'
 
 %runscript
     echo "This is the Apptainer speaking."
