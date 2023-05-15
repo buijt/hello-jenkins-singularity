@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build image') {
             steps {
-                sh "docker build -t buijt/hello-jenkins-singularity ."
+                sh "apptainer build hello_R.sif Apptainer.def"
             }
         }
 
         stage('Test image') {
             steps {
-                sh 'docker run buijt/hello-jenkins-singularity'
+                sh 'apptainer run hello_R.sif'
             }
         }
     }

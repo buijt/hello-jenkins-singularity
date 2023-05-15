@@ -1,0 +1,20 @@
+Bootstrap: docker
+From: r-base:4.3.0
+
+%files
+    hello.R
+
+%post
+    apt-get -y update && apt-get install -y \
+    cmake \
+    && rm -rf /var/lib/apt/lists/*
+    R -e 'install.packages("BiocManager");BiocManager::install("MSstats")'
+
+%runscript
+    echo "This is the Apptainer speaking."
+    Rscript /hello.R
+
+%labels
+    Author Jonathan T. Bui
+    Version v0.0.3
+    Name hellojenkinssingularity
