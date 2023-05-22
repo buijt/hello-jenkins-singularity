@@ -41,3 +41,11 @@ The HPC I can access has Apptainer v1.1.8 (latest as of 5/15/2023) installed,
 so I will use the 
 [Apptainer specification](https://apptainer.org/docs/user/latest/definition_files.html)
 .
+
+### Getting Jenkins to read private repos
+
+Setting up a
+[personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+is needed to access private repositories. Jenkins will save this token and use it to
+authenticate itself to pull from those private repos. Since Jenkins is a CI tool for
+building software, I have granted Jenkins a read-only access token.
